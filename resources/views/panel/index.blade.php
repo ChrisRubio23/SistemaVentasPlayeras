@@ -558,11 +558,11 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+</div>
                 
 
 
-                    @endsection
+@endsection
 
 @push('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
 
 Route::get('/', function () {
     return view('template');
@@ -11,6 +12,10 @@ Route::get('/', function () {
 }); */
 
 Route::view('/panel', 'panel.index')->name('panel');
+
+/* Route::view('/categorias', 'categoria.index'); */
+
+Route::resource('categorias',categoriaController::class);
 
 Route::get('/login', function () {
     return view('auth.login');
