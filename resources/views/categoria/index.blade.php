@@ -1,13 +1,36 @@
 @extends('template')
 
-@section('title','categorias')
+@section('title','Categorias')
 
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" 
 rel="stylesheet" type="text/css"> <!-- Intentar insertarlo dentro del push css sin que se superponga el numero-->
 @push('css')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endpush
 
 @section('content')
+
+@if (session('sucess'))
+<script>
+    const Toast = Swal.mixin({ /* Dar formato en otro momento */
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 1500,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "Operación exitosa"
+});
+</script>
+
+@endif()
+
 <div class="container-fluid px-4">
     <h1 class="mt-4 text-center">Categorías</h1>
     <ol class="breadcrumb mb-4">
@@ -16,7 +39,7 @@ rel="stylesheet" type="text/css"> <!-- Intentar insertarlo dentro del push css s
     </ol>
 
     <div class="mb-4">
-        <a href="">
+        <a href="{{ route('categorias.create')}}">
             <button type="button" class="btn btn-primary">Añadir nuevo registro</button>
         </a>
     </div>
