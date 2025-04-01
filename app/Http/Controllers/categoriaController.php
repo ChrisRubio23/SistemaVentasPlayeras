@@ -17,7 +17,7 @@ class categoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::with('caracteristica')->get();
+        $categorias = Categoria::with('caracteristica')->latest()->get();
         /* dd($categorias); */
         return view('categoria.index', ['categorias' => $categorias]);
     }
@@ -46,7 +46,7 @@ class categoriaController extends Controller
             DB::rollBack();
         }
 
-        return redirect()->route('categorias.index')->with('sucess','Categoría registrada');
+        return redirect()->route('categorias.index')->with('success','Categoría registrada');
     }
 
     /**
@@ -74,14 +74,31 @@ class categoriaController extends Controller
         Caracteristica::where('id',$categoria->caracteristica->id)
         ->update(($request->validated()));
 
-        return redirect()->route('categorias.index')->with('sucess','Categoría editada');
+        return redirect()->route('categorias.index')->with('success','Categoría editada');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $message = '';
+        $categoria = Categoria::find($id);
+        if($categoria->caracteristica->estado == 1){
+            Caracteristica::where('id',$categoria->caracteristica->id)
+            ->update([
+                'estado' => 0
+            ]);
+            $message = 'Categoría eliminada';
+        }
+        else{
+            Caracteristica::where('id',$categoria->caracteristica->id)
+            ->update([
+                'estado' => 1
+            ]);
+            $message = 'Categoría restaurada';
+        }
+        return redirect()->route('categorias.index')->with('success',$message);        
+        /* dd($id); */ 
     }
 }
