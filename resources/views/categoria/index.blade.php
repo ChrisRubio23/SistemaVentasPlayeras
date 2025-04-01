@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <!-- Ajustar formato del código -->
+=======
+>>>>>>> f3276e4e0b05889e00cf43765ba30cd6ff0cd19f
 @extends('template')
 
 @section('title','Categorias')
@@ -51,6 +54,7 @@ Toast.fire({
                                 Tabla categorías
                             </div>
                             <div class="card-body">
+<<<<<<< HEAD
                                 <table id="datatablesSimple" class="table table-striped">
                                     <thead>
                                         <tr>
@@ -80,6 +84,37 @@ Toast.fire({
                                             </td>
                                         </tr>
                                         @endforeach
+=======
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
+                                        
+>>>>>>> f3276e4e0b05889e00cf43765ba30cd6ff0cd19f
                                     </tbody>
                                 </table>
                             </div>
