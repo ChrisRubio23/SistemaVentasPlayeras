@@ -1,4 +1,3 @@
-<!-- Ajustar formato del código -->
 @extends('template')
 
 @section('title','Categorias')
@@ -74,13 +73,11 @@ Toast.fire({
                                                 <form action="{{route('categorias.edit',['categoria'=>$categoria])}}" method="get">
                                                     <button type="submit" class="btn btn-warning">Editar</button>
                                                 </form>
-                                                
                                                 <button type="button" class="btn btn-danger">Eliminar</button> <!-- Ajustar tamaño del botón -->
+                                                
                                             </div>
                                             </td>
                                         </tr>
-                                        @endforeach
-                      </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
